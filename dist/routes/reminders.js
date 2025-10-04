@@ -1,9 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
+const auth_1 = require("../middleware/auth");
+const remindersController_1 = require("../controllers/remindersController");
 const router = (0, express_1.Router)();
-router.get('/', (_req, res) => res.status(501).json({ message: 'Not implemented' }));
-router.post('/', (_req, res) => res.status(501).json({ message: 'Not implemented' }));
-router.patch('/:id', (_req, res) => res.status(501).json({ message: 'Not implemented' }));
-router.get('/export/ics', (_req, res) => res.status(501).json({ message: 'Not implemented' }));
+router.use(auth_1.requireAuth);
+router.get('/', remindersController_1.listReminders);
+router.post('/', remindersController_1.createReminder);
+router.patch('/:id', remindersController_1.updateReminder);
+router.get('/export/ics', remindersController_1.exportIcs);
 exports.default = router;

@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
+const auth_1 = require("../middleware/auth");
+const contactsController_1 = require("../controllers/contactsController");
 const router = (0, express_1.Router)();
-router.get('/', (_req, res) => res.status(501).json({ message: 'Not implemented' }));
-router.post('/', (_req, res) => res.status(501).json({ message: 'Not implemented' }));
-router.patch('/:id', (_req, res) => res.status(501).json({ message: 'Not implemented' }));
+router.use(auth_1.requireAuth);
+router.get('/', contactsController_1.listContacts);
+router.post('/', contactsController_1.createContact);
+router.patch('/:id', contactsController_1.updateContact);
 exports.default = router;

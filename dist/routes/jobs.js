@@ -1,9 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
+const auth_1 = require("../middleware/auth");
+const jobsController_1 = require("../controllers/jobsController");
 const router = (0, express_1.Router)();
-router.get('/', (_req, res) => res.status(501).json({ message: 'Not implemented' }));
-router.post('/', (_req, res) => res.status(501).json({ message: 'Not implemented' }));
-router.patch('/:id', (_req, res) => res.status(501).json({ message: 'Not implemented' }));
-router.delete('/:id', (_req, res) => res.status(501).json({ message: 'Not implemented' }));
+router.use(auth_1.requireAuth);
+router.get('/', jobsController_1.listJobs);
+router.post('/', jobsController_1.createJob);
+router.patch('/:id', jobsController_1.updateJob);
+router.delete('/:id', jobsController_1.deleteJob);
 exports.default = router;
