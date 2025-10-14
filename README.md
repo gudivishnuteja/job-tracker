@@ -90,7 +90,8 @@ job-tracker/
 ├── README.md
 └── .env
 
-contact 
-Gudi Vishnu Teja
-https://www.linkedin.com/in/gudi-vishnu-teja/
-gudivishnuteja@gmail.com
+## 👨‍💻 Authors
+
+**Gudi Vishnu Teja**  
+📧 [gudivishnuteja@gmail.com](mailto:gudivishnuteja@gmail.com)  
+🔗 [LinkedIn](https://www.linkedin.com/in/gudi-vishnu-teja)
